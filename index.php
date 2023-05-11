@@ -164,6 +164,220 @@ if(array_key_exists("PHP",$arr));
 echo "<pre>";
 print_r(array_keys($arr,true) );
 echo "</pre>";
+function say_hello_to($someone,$gender="")
+{if($gender=="male"||$gender=="Male"||$gender=="M"||$gender=="m")
+    {echo "Hello Mr $someone<br> "; }
+    else if($gender=="female"||$gender=="Female"||$gender=="F"||$gender=="f")
+    {echo "Hello Miss $someone<br> "; }
+    else{echo "Hello $someone<br> ";}
+}
+
+say_hello_to("Mohamed","Male");
+
+function output(...$name)
+ {
+    foreach($name as $strin)
+    {echo "$strin";}
+ }
+
+output("MOhamed","Samy","Gamal","Tamer");
+echo "<br>";
+
+function oUT( $array=[])
+{
+    foreach($array as $name)
+ {echo "$name ";}
+ echo "<br>";
+for($i=0;$i<sizeof($array);$i++)
+{echo "$array[$i] ";}
+}
+
+oUT(["Moahmed","Samy","Samir","Hatem","Nagm","Zein"]);
+
+
+function sum_all(...$nums)
+{$result=0;
+    foreach($nums as $num):
+  
+    if($num==5)
+    continue;
+  
+    else if($num==10)
+   {$num=20;}
+  $result+=$num;
+    
+    endforeach;
+    return $result."<br>";
+}
+echo "<br>";
+echo sum_all(10, 12, 5, 6, 6, 10); // 64
+echo sum_all(5, 10, 5, 10); // 40
+
+
+$message = "Hello";
+
+$$message=fn($name)=>  $message . $name;
+
+echo $Hello(" Osama"); // Hello Osama
+
+
+
+
+
+// Write Function Content Here
+
+// Needed Output
+
+function multiply(...$nums)
+{$mult=1;
+    foreach($nums as $num)
+    {
+     if(gettype($num)=="string")
+             continue;
+     
+     
+     else if(gettype($num)=="double")
+     {$num=(int)$num;}
+
+     $mult*=$num;
+    }
+ return $mult;
+}
+
+
+echo multiply(10, 20); // 200
+echo "<br>";
+echo multiply("A", 10, 30); // 300
+echo "<br>";
+echo multiply(100.5, 10, "B"); // 1000
+echo "<br>";
+
+
+
+
+
+function check_status($a, $b, $c) {
+    if(gettype($a)=="string")
+     {echo "Hello $a , ";}
+
+     else if(gettype($b)=="string")
+     {echo "Hello $b , ";}
+
+     else if(gettype($c)=="string")
+     {echo "Hello $c , ";}
+
+     /////////////////////////////////////////////////////
+     if(gettype($a)=="integer")
+       {echo "Your age is $a , ";}
+
+       else if(gettype($b)=="integer")
+       {echo "Your age is $b , ";}
+       
+       
+       else if(gettype($c)=="integer")
+       {echo "Your age is $c , ";}
+
+     /////////////////////////////////////////////////////
+     if(gettype($a)=="boolean")
+       {
+        if($a==true )
+        {echo "You Are Available For Hire , ";}
+        
+        else if($a==false)
+        {echo "You Are Not Available For Hire , ";}
+       }
+
+      else if(gettype($b)=="boolean")
+       {
+        if($b==true )
+        {echo "You Are Available For Hire , ";}
+        
+        else if($b==false)
+        {echo "You Are Not Available For Hire , ";}
+       }
+      
+       else if(gettype($c)=="boolean")
+       {
+        if($c==true )
+        {echo "You Are Available For Hire , ";}
+        
+        else if($c==false)
+        {echo "You Are Not Available For Hire , ";}
+       }
+
+
+  }
+  
+  // Needed Output
+  echo check_status("Osama", 38, true); 
+  echo "<br>";// "Hello Osama, Your Age Is 38, You Are Available For Hire"
+  echo check_status(38, "Osama", true); // "Hello Osama, Your Age Is 38, You Are Available For Hire"
+  echo "<br>";
+  echo check_status(true, 38, "Osama"); // "Hello Osama, Your Age Is 38, You Are Available For Hire"
+  echo "<br>";
+  echo check_status(false, "Osama", 38); // "Hello Osama, Your Age Is 38, You Are Not Available For Hire"
+
+function calculatee($a,$b,$arth="+")
+ {
+    if($arth=="+" || $arth=="a" ||$arth=="add")
+    {
+        return $a+$b;
+    }
+
+   else if($arth=="-" || $arth=="s" ||$arth=="substruct")
+    {
+        return $a-$b;
+    }
+    
+    else if($arth=="*" || $arth=="m" ||$arth=="multiply")
+    {
+        return $a*$b;
+    }
+
+}
+
+
+echo calculatee(10, 20); // 30
+echo "<br>";
+echo calculatee(10, 20, "a"); // 30
+echo "<br>";
+echo calculatee(10, 20, "s"); // -10
+echo "<br>";
+echo calculatee(10, 20, "substract"); // -10
+echo calculatee(10, 20, "multiply"); // 200
+echo "<br>";
+echo calculatee(10, 20, "m"); // 200
+
+
+
+
+
+
+
+function calculater(int $num_one, int $num_two):float   {
+    return $num_one + $num_two;
+  }
+  
+  echo calculater(20, 10); // 30
+  echo "<br>";
+  echo gettype(calculater(20, 10)); // Double
+  echo "<br>";
+
+ $greet=function($name){"Greetings $name <br>";};
+
+ $greet=fn($name)=>"Greetings $name <br>";
+  echo $greet("Osama");
+
+
+
+
+
+
+
+
+
+
+
 
 ?>
 

@@ -1,0 +1,15 @@
+echo:
+
+echo is a statement, which is used to display the output.
+echo can be used with or without parentheses.
+echo does not return any value.
+We can pass multiple strings separated by comma (,) in echo.
+echo is faster than print statement.
+
+print:
+
+print is also a statement, used as an alternative to echo at many times to display the output.
+print can be used with or without parentheses.
+print always returns an integer value, which is 1.
+Using print, we cannot pass multiple arguments.
+print is slower than echo statement.
