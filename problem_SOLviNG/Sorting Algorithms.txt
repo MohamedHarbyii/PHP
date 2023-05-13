@@ -1,0 +1,21 @@
+$arr1=[1,9,4,2,8,3,20];
+// $Min=$arr1[0];
+$si=sizeof($arr1);
+for($i=0;$i<sizeof($arr1);$i++)
+{
+	$Min=$arr1[$i];
+
+	// echo $Min,"<br>";
+		for($i2=$i+1;$i2<sizeof($arr1);$i2++)
+		{
+				if($arr1[$i2]>$Min)
+			  { $Min=$arr1[$i2];
+          $T=$arr1[$i];
+          $arr1[$i]=$Min;
+          $arr1[$i2]=$T;
+				}
+				
+		}
+
+   
+	}
