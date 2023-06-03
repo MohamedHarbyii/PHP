@@ -96,7 +96,7 @@ _You can control the erorr :first you have to put @ operator and if you wnat to 
 		- stristr(String[Required], Search[Required], Before_Search[Optional] = False)
 		--- Case-Insensitive
 		- number_format(Number[Required], Decimals[Optional], Decimal_String[Optional], Separator[Optional])
-
+        --echo  preg_replace("/[aeiou]/i", "", $string); : to remove any specific char
 
 
 
@@ -181,24 +181,79 @@ _You can control the erorr :first you have to put @ operator and if you wnat to 
 		-to get the free one use disk_free_space
 		-if you want to check if the file exist use:file_exist()
 		-if you want to get the size of a file use filesize()
+		-if you want to the files at the dir use glob()
 		-If you want to check if the directory is or not use function is_dir()
 		-To make a directory use fn mkdir():The default mode is :0777 :The first 7 is for the owner the sc for the user group the third for everyone else
+		-There is a function get you the file permissions called fileperms
+		-To change the permission of the file use chmod
+		-If you changed it will be the same because the cache so use clearstatcache
+		-There is basename :It gets the basename for you
+        -If you want to get the directory name use dirname,there is nums to get to the prev dir : If you want to get the full path use realpath and u use the magic functions
+		-If you want to get all the informations of the dir use pahtinfo
+		-To open a dir use fopen(),there is mode r to read,r+ to read and write ,w to write ,w+ to write and read
+		-To read a file use fread()the sec argument is teh length of the bytes
+		-modes in fread :[w=>to write ,w+ =>to write and read , r=>to read ,r+ =>to read and write
+		a=>write and create if not exist ,a+ =>write and read and create ,
+		x=>create if not exist  and write                ]
+		-The between from a & a+ and r or w is that a pointers at the end but w and r pointers at the begining
+		-to write use fwrite
+		-To read the file use fgets or fwrite
+		-This funtion is used to tell if the pointer reached end or not: feof($handl)
+		-every line when you read it with fgets the pointer move from one to other
+		-To know the possition of the pointer use ftell() 
+		-To get the number of the bites use mb_strlen()
+		-Use fseek to move to any pointer 
+		-Use glob to get the files : glob("*.txt")=>* means all
+		-to rename a file use rename(oldname,newname)
+		-To copy a fie to an other path use copy(the oldpath,newpath)
+		-To get the path use get_include_path
+		-To get a file contents use file_get_contents 
+		-to put a contents at the file use file_put_contents(),when u use file_append it will allow  
+		 u to append from the place u stopped 
+		-you can scan any dir with fn scan_dir
+		 DIRECTORY_SEPARATOR:Makes php handle the separator becuase it devrise from os to another
+    _______________________________Date & Time Functions_______________________________
+		-To get the default date use date_default_timezone_get()
+		-To set the default time zone use date_default_timezone_set()
+		-To create a date use date_create()
+		-To form the shape of the date use date_format()
+		-You can use date add but when u add string it will give u error so use function date_iterval_from_date_string
+		-You can substract a date with date sub
+		-finally u can use date_modify to modify any date without using dete_interval_funcion
+		-To get all the informations about the current date use getdate()
+		-to get the time from 1970 until now use time()
+		-If u want a clean date and empty of erorrs use date_parse
+		-Date_diff: gives u the difference between two dates
+		-strtotime():accepts the words and convert them into a arthmitic operators  
+		- To print the full name of the day use 'l' and the full month use 'F'
 		-
-		-f
+		-
+    _______________________________Cookies Functions_______________________________
+        -u can set a cookie for anyone goes into ur website
+	    --- Name
+        --- Value
+        --- Expire
+        --- Path:if path is / the cookie will be everywhere at the domain
+        --- Domain
+        --- Secure
+        --- HTTP_Only
+		-
+		-session_start()
+		-$_SESSION['name']="mohamed"
+		-you can get the session of the id and u can modify it
+	  _______________________________OOP_______________________________
+		-first there is a const member and u can refer it with key word self
+		-If u want to print the constant name use :: and if u want to print it outside the class use the name of the 
+		object or the class and :: (the constant name)
+		-When u use keyword final u cannot override the function and connot modify on it at any child classes
+		-The call method is used to show a message or do something when u call a method not defined or not accessable
 		-
 		-
-
-
-
-
-
-
-
-
-
-
-
-
+		-
+		-
+		-
+		-
+		-
 
 
 
@@ -206,95 +261,105 @@ _You can control the erorr :first you have to put @ operator and if you wnat to 
 
 */
 
-//filter_id($name)
+
+
+
 use function PHPSTORM_META\type;
 
 $arr=[10,20,30,40,50,60,70,80,90,100];
 echo '<h1>بسم الله الرحمن الرحيم</h1>' ;
 echo "<h1>Hello world!</h1>";
 
+abstract class login
+{	protected
+	$name,$age,$password,$email;
+	public function __construct(user $name =null,user $age=null,$password=null,$email=null) {
+		$this->name = $name;
+		$this->age=$age;
+		$this->password=$password;
+		$this->email=$email;
+}
 
-
-$url1 = "http://www.elz ero.org";
-$url2 = "http://¥elzero.org";
-$url3 = "https://elzero.org";
-$url4 = "https://elzero.o¥rg";
-
-if((filter_var($url1,FILTER_VALIDATE_URL,FILTER_NULL_ON_FAILURE)))
-echo "A Valid URL<br>";
-else{echo "Not A Valid URL<br>";}
-
-if(filter_var($url2,FILTER_VALIDATE_URL,FILTER_NULL_ON_FAILURE))
-{echo "A Valid URL<br>";}
-else{echo "Not A Valid URL<br>";}
-
-
-if((filter_var($url3,FILTER_VALIDATE_URL,FILTER_NULL_ON_FAILURE)))
-{echo "A Valid URL<br>";}
-else{echo "Not A Valid URL<br>";}
-
-if((filter_var($url4,FILTER_VALIDATE_URL,FILTER_NULL_ON_FAILURE)))
-{echo "A Valid URL<br>";}
-else{echo "Not A Valid URL<br>";}
-
-
-echo filter_input(INPUT_GET,"name"),"<br>";
+abstract function spec($name,$a,$p,$e);
 
 
 
 
+}
+
+class user  extends login 
+{
+	
+	 const MAXLENGTH=2;
+
+		
+	
+ public function spec($n,$a,$p,$e)
+{
+	echo $this->name=$n,"<Br>";
+	echo $this->age=$a,"<Br>";
+	echo $this->email=$e,"<Br>";
+	echo $this->password=$p,"<Br>";
+}
+public function name($username){
+$this->name=$username;
+echo "Your name is $username<br>";
+}
 
 
+public function getemail()
+{echo $this->email;}
 
-
-
-?>
-
-<?=
-"";
-?>
-<?php if(true): ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Document</title>
-</head>
-<body background="black">
-<form action="" method="GET">
-
-
-
-<div>
-		<label for="name">name</label>
-		<input type="text" name="name" minlength="6" maxlength="30" id=first  required>
-
-
-		<input type="submit" value="Go">
-<br>
-
-
-
-</div>
-<br>
-
-
-</form>
+}
 
 
 
 
 
+class teacher extends login{
+private $id;
+	
+public function spec($n,$a,$p,$e)
+{
+	echo $this->name=$n,"<Br>";
+	echo $this->age=$a,"<Br>";
+	echo $this->email=$e,"<Br>";
+	echo $this->password=$p,"<Br>";
+}
+public function __call($methodname,$parameters)
+{echo "The method [$methodname] is unaccessble or undefined<br>";}
+}
 
-<div class="scroll-to-top" style="display: block;">
-<span>
 
-</span>
-</div>
-</body>
-</html>
-<?php endif; ?>
-<?php
+$user=new user();
+$teacher=new teacher();
+$teacher->spc("Mohamed",16,"MohamedHarbyii54@gmail.com","Mohamed");
+// $teacher->spec("Samy",32,"Samyeladl43@ad.com","Samy eleadl");
+
+
+class Animal {
+	public function speak() {
+        echo "Animal speaks";
+    }
+}
+
+class Dog extends Animal {
+	public function speak() {
+        echo "woof";
+    }
+}
+
+
+// create an object of the Dog class
+$myDog = new Dog();
+
+// call the speak() method on the Dog object
+$myDog->speak();
+
+
+
+echo get_class($myDog);
+
+
+
 
